@@ -18,6 +18,12 @@ function createGrid(sideLength) {
     console.log(root.style.setProperty('--side-length', `${sideLength}`))
 
     for (let i = 0; i < sideLength * sideLength; i++) {
+        createGridSquare()
+    }
+}
+
+// Creates gridSquares with the corrent sketching mode properties
+function createGridSquare() {
         const gridSquare = document.createElement('div')
         gridSquare.classList.add('grid-square')
         gridSquare.style.backgroundColor = 'rgb(255, 255, 255)'
@@ -33,9 +39,7 @@ function createGrid(sideLength) {
         })
 
         gridContainer.appendChild(gridSquare)
-    }
 }
-
 // removes grid
 function removeGrid() {
     let grids = gridContainer.querySelectorAll('div')
