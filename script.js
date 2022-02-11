@@ -23,6 +23,7 @@ function createGrid(sideLength) {
 
         // Add event listener to color square on mouse enter
         gridSquare.addEventListener('mouseenter', () => {
+            // incremnt branch
             gridSquare.classList.add('inked')
         })
 
