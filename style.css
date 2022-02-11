@@ -1,0 +1,15 @@
+:root {
+    --side-length: 20;
+}
+
+.container {
+    width: 80vmin;
+    margin-inline: auto;
+    aspect-ratio: 1;
+    display: grid;
+    grid-template-columns: repeat(var(--side-length), 1fr);
+    border: 1px solid black;
+}
+.inked {
+    background-color: gray;
+}
