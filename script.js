@@ -24,7 +24,9 @@ function createGrid(sideLength) {
 
         // Add event listener to color square on mouse enter
         gridSquare.addEventListener('mouseenter', () => {
-            // incremnt branch
+            // default
+            // gridSquare.classList.add('inked')
+            // increment darkness branch
             let bgGrid = gridSquare.style.backgroundColor
             let rgb = getGrayVal(bgGrid)
             gridSquare.style.backgroundColor = `rgb(${rgb - 51},${rgb - 51},${rgb - 51})`
