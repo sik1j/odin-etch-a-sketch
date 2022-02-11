@@ -20,9 +20,17 @@ optShade.addEventListener('click', () => {
     removeGrid()
     createGrid()
 })
+const optRGBShade = document.createElement('option')
+optRGBShade.textContent = 'Shade Rainbow'
+optRGBShade.addEventListener('click', () => {
+    mode = 'shade-rainbow'
+    removeGrid()
+    createGrid()
+})
 
 selectMode.appendChild(optRegular)
 selectMode.appendChild(optShade)
+selectMode.appendChild(optRGBShade)
 
 // Clear button
 const clearBtn = document.createElement('button')
