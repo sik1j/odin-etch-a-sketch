@@ -21,9 +21,9 @@ optShade.addEventListener('click', () => {
     createGrid()
 })
 const optRGBShade = document.createElement('option')
-optRGBShade.textContent = 'Shade Rainbow'
+optRGBShade.textContent = 'Rainbow'
 optRGBShade.addEventListener('click', () => {
-    mode = 'shade-rainbow'
+    mode = 'rainbow'
     removeGrid()
     createGrid()
 })
@@ -70,6 +70,7 @@ function createGridSquare() {
 
     // Add event listener to color square on mouse enter
     gridSquare.addEventListener('mouseenter', () => {
+        let bgGrid;
         switch (mode) {
             case 'regular':
                 gridSquare.classList.add('inked')
@@ -77,9 +78,13 @@ function createGridSquare() {
 
             case 'shade':
                 gridSquare.style.backgroundColor = gridSquare.style.backgroundColor == "" ? 'rgb(255, 255, 255)' : gridSquare.style.backgroundColor
-                let bgGrid = gridSquare.style.backgroundColor
+                bgGrid = gridSquare.style.backgroundColor
                 let rgb = getGrayVal(bgGrid)
                 gridSquare.style.backgroundColor = `rgb(${rgb - 25.5},${rgb - 25.5},${rgb - 25.5})`
+                break;
+            case 'rainbow':
+                bgGrid = gridSquare.style.backgroundColor
+                gridSquare.style.backgroundColor = bgGrid == ""  ? `rgb(${rndRgb()},${rndRgb()},${rndRgb()})`: bgGrid
                 break;
         }
     })
@@ -110,5 +115,16 @@ function getGrayVal(rgbVal) {
         return rgbVal.substring(4, 6)
     }
     return rgbVal.substring(4, 5)
+}
+
+
+function rndRgb() {
+    return Math.round(Math.random()*255)
+}
+
+function getLightness(hslStr) {
+    let lightnessStart = hslStr.lastIndexOf(" "); 
+    let lightnessEnd = hslStr.lastIndexOf("%"); 
+    return hslStr.substring(lightnessStart,lightnessEnd)
 }
 createGrid(16)
