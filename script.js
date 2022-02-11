@@ -71,7 +71,7 @@ function createGridSquare() {
                 gridSquare.style.backgroundColor = gridSquare.style.backgroundColor == "" ? 'rgb(255, 255, 255)' : gridSquare.style.backgroundColor
                 let bgGrid = gridSquare.style.backgroundColor
                 let rgb = getGrayVal(bgGrid)
-                gridSquare.style.backgroundColor = `rgb(${rgb - 51},${rgb - 51},${rgb - 51})`
+                gridSquare.style.backgroundColor = `rgb(${rgb - 25.5},${rgb - 25.5},${rgb - 25.5})`
                 break;
         }
     })
