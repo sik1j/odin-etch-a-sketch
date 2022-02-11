@@ -12,6 +12,11 @@ const gridContainer = document.createElement('div')
 gridContainer.classList.add('container')
 entry.appendChild(gridContainer)
 
+// -----------------------
+// globals
+// -----------------------
+let mode = 'regular'
+
 // creates grid
 function createGrid(sideLength) {
     let root = document.querySelector(':root')
@@ -26,16 +31,21 @@ function createGrid(sideLength) {
 function createGridSquare() {
         const gridSquare = document.createElement('div')
         gridSquare.classList.add('grid-square')
-        gridSquare.style.backgroundColor = 'rgb(255, 255, 255)'
 
         // Add event listener to color square on mouse enter
         gridSquare.addEventListener('mouseenter', () => {
-            // default
-            // gridSquare.classList.add('inked')
-            // increment darkness branch
-            let bgGrid = gridSquare.style.backgroundColor
-            let rgb = getGrayVal(bgGrid)
-            gridSquare.style.backgroundColor = `rgb(${rgb - 51},${rgb - 51},${rgb - 51})`
+            switch (mode) {
+                case 'regular':
+                    gridSquare.classList.add('inked')
+                    break;
+            
+                case 'shade':
+                    gridSquare.style.backgroundColor = 'rgb(255, 255, 255)'
+                    let bgGrid = gridSquare.style.backgroundColor
+                    let rgb = getGrayVal(bgGrid)
+                    gridSquare.style.backgroundColor = `rgb(${rgb - 51},${rgb - 51},${rgb - 51})`
+                    break;
+            }
         })
 
         gridContainer.appendChild(gridSquare)
