@@ -20,11 +20,14 @@ function createGrid(sideLength) {
     for (let i = 0; i < sideLength * sideLength; i++) {
         const gridSquare = document.createElement('div')
         gridSquare.classList.add('grid-square')
+        gridSquare.style.backgroundColor = 'rgb(255, 255, 255)'
 
         // Add event listener to color square on mouse enter
         gridSquare.addEventListener('mouseenter', () => {
             // incremnt branch
-            gridSquare.classList.add('inked')
+            let bgGrid = gridSquare.style.backgroundColor
+            let rgb = getGrayVal(bgGrid)
+            gridSquare.style.backgroundColor = `rgb(${rgb - 51},${rgb - 51},${rgb - 51})`
         })
 
         gridContainer.appendChild(gridSquare)
@@ -47,4 +50,12 @@ function promtNewGrid() {
     createGrid(gridSize)
 }
 
+function getGrayVal(rgbVal) {
+    if (rgbVal.length === 18) {
+        return rgbVal.substring(4, 7)
+    } else if (rgbVal.length === 15) {
+        return rgbVal.substring(4, 6)
+    }
+    return rgbVal.substring(4, 5)
+}
 createGrid(16)
