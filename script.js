@@ -8,6 +8,7 @@ const selectMode = document.createElement('select')
 // mode select options
 const optRegular = document.createElement('option')
 optRegular.textContent = 'Regular'
+optRegular.addEventListener('click', () => mode = 'regular')
 const optShade = document.createElement('option')
 optShade.textContent = 'Shade'
 
@@ -33,9 +34,10 @@ entry.appendChild(gridContainer)
 // globals
 // -----------------------
 let mode = 'regular'
+let sideLength = 16
 
 // creates grid
-function createGrid(sideLength) {
+function createGrid() {
     let root = document.querySelector(':root')
     console.log(root.style.setProperty('--side-length', `${sideLength}`))
 
@@ -80,7 +82,8 @@ function promtNewGrid() {
     removeGrid()
     let gridSize = Number.parseInt(Math.round(Number.parseFloat(prompt("New grid size:"))))
     gridSize = gridSize <= 100 ? gridSize : 100
-    createGrid(gridSize)
+    sideLength = gridSize
+    createGrid()
 }
 
 function getGrayVal(rgbVal) {
