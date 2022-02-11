@@ -1,15 +1,32 @@
 // Entry node for app
 const entry = document.querySelector('.App')
 
+// mode switch
+const labelMode = document.createElement('label')
+labelMode.textContent = "Sketching Mode"
+const selectMode = document.createElement('select')
+// mode select options
+const optRegular = document.createElement('option')
+optRegular.textContent = 'Regular'
+const optShade = document.createElement('option')
+optShade.textContent = 'Shade'
+
+selectMode.appendChild(optRegular)
+selectMode.appendChild(optShade)
+
 // Clear button
 const clearBtn = document.createElement('button')
 clearBtn.textContent = "Clear"
 clearBtn.addEventListener('click', () => promtNewGrid())
-entry.appendChild(clearBtn)
 
 // container for grid
 const gridContainer = document.createElement('div')
 gridContainer.classList.add('container')
+
+// Order of additions to app
+entry.appendChild(labelMode)
+entry.appendChild(selectMode)
+entry.appendChild(clearBtn)
 entry.appendChild(gridContainer)
 
 // -----------------------
