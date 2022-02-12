@@ -89,7 +89,7 @@ function createGridSquare() {
         let bgGrid;
         switch (mode) {
             case 'regular':
-                gridSquare.classList.add('inked')
+                gridSquare.style.backgroundColor = 'gray'
                 break;
             case 'shade':
                 gridSquare.style.backgroundColor = gridSquare.style.backgroundColor == "" ? 'rgb(255, 255, 255)' : gridSquare.style.backgroundColor

@@ -10,6 +10,3 @@
     grid-template-columns: repeat(var(--side-length), 1fr);
     border: 1px solid black;
 }
-.inked {
-    background-color: gray;
-}
