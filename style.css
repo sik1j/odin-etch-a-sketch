@@ -1,3 +1,4 @@
+/* Grid Style */
 :root {
     --side-length: 20;
 }
@@ -9,4 +10,12 @@
     display: grid;
     grid-template-columns: repeat(var(--side-length), 1fr);
     border: 1px solid black;
+    grid-column: 2 / 3;
+}
+
+/* Styling the page */
+.App {
+    display: grid;
+    grid-template-columns: minmax(1fr, 200px) auto;
+    grid-template-rows: 1fr;
 }
