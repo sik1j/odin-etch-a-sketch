@@ -20,6 +20,13 @@ optShade.addEventListener('click', () => {
     removeGrid()
     createGrid()
 })
+const optLightShade = document.createElement('option')
+optLightShade.textContent = 'Light Shade'
+optLightShade.addEventListener('click', () => {
+    mode = 'light-shade'
+    removeGrid()
+    createGrid()
+})
 const optRGB = document.createElement('option')
 optRGB.textContent = 'Rainbow'
 optRGB.addEventListener('click', () => {
@@ -37,6 +44,7 @@ optRainbowShade.addEventListener('click', () => {
 
 selectMode.appendChild(optRegular)
 selectMode.appendChild(optShade)
+selectMode.appendChild(optLightShade)
 selectMode.appendChild(optRGB)
 selectMode.appendChild(optRainbowShade)
 
@@ -88,6 +96,10 @@ function createGridSquare() {
                 bgGrid = gridSquare.style.backgroundColor
                 let rgb = getGrayVal(bgGrid)
                 gridSquare.style.backgroundColor = `rgb(${rgb - 25.5},${rgb - 25.5},${rgb - 25.5})`
+                break;
+            case 'light-shade':
+                bgGrid = gridSquare.style.backgroundColor
+                gridSquare.style.backgroundColor = bgGrid == "" ? darkenRgb('rgb(255, 255, 255)') : darkenRgb(bgGrid)
                 break;
             case 'rainbow':
                 bgGrid = gridSquare.style.backgroundColor
