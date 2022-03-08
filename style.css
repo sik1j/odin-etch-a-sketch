@@ -9,8 +9,11 @@
     aspect-ratio: 1;
     display: grid;
     grid-template-columns: repeat(var(--side-length), 1fr);
-    border: 1px solid black;
     grid-column: 2 / 3;
+}
+.container > div {
+    border-radius: 15%;
+    border: 1px solid #0000005d
 }
 
 /* Styling the page */
